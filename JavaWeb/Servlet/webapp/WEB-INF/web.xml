@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+	<!-- Web的配置 -->
+	<!-- 在告诉Tomcat来管理Servlet类 -->
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>com._520it._01_hello.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InitParamServlet</servlet-name>
+		<servlet-class>com._520it._02_initparam.InitParamServlet</servlet-class>
+		<!-- 初始化参数 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>GBK</param-value>
+		</init-param>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>Will</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InitParamServlet</servlet-name>
+		<url-pattern>/init</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Servlet1</servlet-name>
+		<servlet-class>com._520it._03_extends.Servlet1</servlet-class>
+		<!-- 初始化参数 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Servlet1</servlet-name>
+		<url-pattern>/s1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmployeeServlet1</servlet-name>
+		<servlet-class>com._520it._03_extends.EmployeeServlet1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmployeeServlet1</servlet-name>
+		<url-pattern>/emp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>HttpServletRequestDemo</servlet-name>
+		<servlet-class>com._520it._04_request.HttpServletRequestDemo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HttpServletRequestDemo</servlet-name>
+		<url-pattern>/req</url-pattern>	
+	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com._520it._05_register.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/reg</url-pattern>	
+	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com._520it._06_encoding.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>	
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>HttpServletResponseDemo</servlet-name>
+		<servlet-class>com._520it._07_response.HttpServletResponseDemo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HttpServletResponseDemo</servlet-name>
+		<url-pattern>/resp</url-pattern>	
+	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>CalServlet</servlet-name>
+		<servlet-class>com._520it._08_cal.CalServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CalServlet</servlet-name>
+		<url-pattern>/cal</url-pattern>	
+	</servlet-mapping>	
+	
+	
+	
+</web-app>
