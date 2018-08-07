@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="com._520it._03_collection">
+	<class name="User">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"/>
+		<property name="age"/>
+		<set name="emailSet" table="user_emails_set">
+			<key column="user_id"/>
+			<element column="address" type="string"/>
+		</set>
+	</class>
+</hibernate-mapping>

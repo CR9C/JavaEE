@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="com._520it._01_many2one_one2many">
+	<!-- one方 -->
+	<class name="Department">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<!-- one2many -->
+		<!-- 
+			inverse="true":反转,one方放弃维护外键关系,把维护外键的权利反转给many方,因为外键在many方.
+		 -->
+		<bag name="employees" inverse="true">
+			<!-- one方在many的表中的外键列名称 -->
+			<key column="dept_id"/>
+			<one-to-many class="Employee"/>
+		</bag>
+	</class>
+	<!-- many方 -->
+	<class name="Employee">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<!-- many2one -->
+		<!-- many2one的column属性one2many的key的column必须相同 -->
+		<many-to-one name="dept" column="dept_id"/>
+	</class>
+</hibernate-mapping>

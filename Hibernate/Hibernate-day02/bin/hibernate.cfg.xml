@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!--2>关联映射文件 -->
+	<!-- <mapping resource="com/_520it/_01_oid/User.hbm.xml"/> -->
+	<!-- <mapping resource="com/_520it/_02_object_state/Person.hbm.xml"/> -->
+	<!-- <mapping resource="com/_520it/_03_collection/User.hbm.xml"/> -->
+	<!-- <mapping resource="com/_520it/_04_many2one/many2one.hbm.xml"/> -->
+	<mapping resource="com/_520it/_05_one2many/one2many.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

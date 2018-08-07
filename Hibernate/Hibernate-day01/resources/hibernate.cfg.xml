@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!--2>关联映射文件 -->
+	<mapping resource="com/_520it/_01_crud/domain/User.hbm.xml"/>
+	<mapping resource="com/_520it/_03_mapping/Employee.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

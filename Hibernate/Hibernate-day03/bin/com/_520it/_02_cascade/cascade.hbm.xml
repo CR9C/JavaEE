@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="com._520it._02_cascade">
+	<!-- one方 -->
+	<class name="SaleBill">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="sn"/>
+		<property name="vdate"/>
+		<!-- one2many -->
+		<!-- 
+		级联选项:
+	        0,none:缺省值,不做任何级联操作.
+			1,save-update:在主对象上面执行save/update的方法,级联的保存临时的从对象,更新游离的从对象
+			2,delete:在主对象上面执行delete方法,级联的删除所有的从对象(要能够级联删除,必须要求在当前主对象里有从对象)
+			3,all:save-update+delete:级联保存,级联删除
+			4,delete-orphan:删除和主对象打破了关系的明细对象(孤立)
+			5,all-delete-orphan:all+delete-orphan:级联增删改(针对于特殊的孤儿删除)
+			
+			//换为delete就没有级联保存了,要先级联保存,再级联删除.
+		 -->
+		<bag name="items" inverse="true" cascade="all">
+			<!-- one方在many的表中的外键列名称 -->
+			<key column="bill_id"/>
+			<one-to-many class="SaleBillItem"/>
+		</bag>
+	</class>
+	<!-- many方 -->
+	<class name="SaleBillItem">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="product"/>
+		<property name="number"/>
+		<!-- many2one -->
+		<many-to-one name="bill" column="bill_id"/>
+	</class>
+</hibernate-mapping>

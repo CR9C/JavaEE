@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 映射文件 -->
+<hibernate-mapping package="com._520it._04_many2one">
+	<!-- one方 -->
+	<class name="Department">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"/>
+	</class>
+
+	<!-- many方 -->
+	<class name="Employee">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name"/>
+		<!-- many2one配置 -->
+		<!-- 
+			name:关联属性的名称
+			column:该属性在表中的外键列名,如果不写和属性名相同
+			class:one方类型,可以省略
+		 -->		
+		<many-to-one name="dept" column="dept_id"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+	<!--2>关联映射文件 -->
+<!-- 	<mapping resource="com\_520it\_01_many2one_one2many\many2one_one2many.hbm.xml"/> -->
+	<!-- <mapping resource="com\_520it\_02_cascade\cascade.hbm.xml"/> -->
+	<!-- <mapping resource="com\_520it\_03_many2many\many2many.hbm.xml"/> -->
+	<mapping resource="com\_520it\_04_extends\extends.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
