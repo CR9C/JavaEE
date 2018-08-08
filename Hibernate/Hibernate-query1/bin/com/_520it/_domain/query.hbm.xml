@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com._520it._domain">
+	<class name="Department">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="sn"/>
+		<component name="Address">
+			<property name="provice"/>
+			<property name="city"/>
+			<property name="street"/>
+		</component>
+		<many-to-one name="manager" column="manager_id"/>
+		<bag name="employees" inverse="true">
+			<key column="dept_id"/>
+			<one-to-many class="Employee"/>
+		</bag>
+	</class>
+	
+	<class name="Employee">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="salary" column="salay"/>
+		<property name="hireDate" type="date"/>
+		<many-to-one name="dept" column="dept_id"/>
+	</class>
+
+	<class name="Phone">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="types">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com._520it._domain.PhoneType</param>
+				<param name="useNamed">true</param>
+			</type>
+		</property>	
+		<property name="number"/>
+		<many-to-one name="employee" column="employee_id"/>
+	</class>
+
+	<class name="Project">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<many-to-one name="manager" column="manager_id"/>
+		<bag name="employees" table="project_employee">
+			<key column="project_id"/>
+			<many-to-many class="Employee" column="employee_id"/>
+		</bag>
+	</class>
+</hibernate-mapping>
